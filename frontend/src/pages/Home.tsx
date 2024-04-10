@@ -32,6 +32,9 @@ function Home() {
         <TabPanels>
           <TabPanel bgColor={'red.50'}>
             <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
           </TabPanel>
 
           <TabPanel>
