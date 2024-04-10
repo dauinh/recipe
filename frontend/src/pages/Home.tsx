@@ -19,10 +19,14 @@ function Home() {
         </InputGroup>
       </Flex>
       <Tabs variant='enclosed' colorScheme='red'>
-        <TabList>
+        <TabList overflowX='scroll'>
           <Tab _selected={{ bg: 'red.50' }}>One</Tab>
           <Tab>Two</Tab>
           <Tab>Three</Tab>
+          <Tab>Four</Tab>
+          <Tab>Five</Tab>
+          <Tab>Six</Tab>
+          <Tab>Seven</Tab>
         </TabList>
 
         <TabPanels>
