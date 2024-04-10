@@ -2,6 +2,8 @@ import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement } from '@cha
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
 
+import RecipeCard from '../components/RecipeCard'
+
 function Home() {
 
   return (
@@ -25,7 +27,7 @@ function Home() {
 
         <TabPanels>
           <TabPanel bgColor={'red.50'}>
-            <p>one!</p>
+            <RecipeCard />
           </TabPanel>
 
           <TabPanel>
