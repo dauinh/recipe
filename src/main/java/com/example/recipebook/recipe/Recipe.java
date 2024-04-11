@@ -1,24 +1,21 @@
 package com.example.recipebook.recipe;
 
-import java.util.ArrayList;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "recipes")
 public class Recipe {
     private @Id @GeneratedValue Long id;
 	private String title;
 	private String description;
-	private ArrayList<String> ingredients;
+	private String ingredients;
 	private String instruction;
 	// private String cookTime;
 	// private int numStep;
 
 	private Recipe() {}
 	
-	public Recipe(String title, String description, ArrayList<String> ingredients, String instruction) {
+	public Recipe(String title, String description, String ingredients, String instruction) {
 		this.title = title;
 		this.description = description;
 		this.ingredients = ingredients;
@@ -49,11 +46,11 @@ public class Recipe {
 		this.description = description;
 	}
 
-	public ArrayList<String> getIngredients() {
+	public String getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(ArrayList<String> ingredients) {
+	public void setIngredients(String ingredients) {
 		this.ingredients = ingredients;
 	}
 
