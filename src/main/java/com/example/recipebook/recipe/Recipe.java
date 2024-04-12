@@ -6,9 +6,17 @@ import jakarta.persistence.*;
 @Table(name = "recipes")
 public class Recipe {
     private @Id @GeneratedValue Long id;
+
+	@Column(name = "title")
 	private String title;
+
+	@Column(name = "description")
 	private String description;
+
+	@Column(name = "ingredients")
 	private String ingredients;
+
+	@Column(name = "instruction")
 	private String instruction;
 	// private String cookTime;
 	// private int numStep;
