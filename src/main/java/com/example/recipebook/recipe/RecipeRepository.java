@@ -1,5 +1,9 @@
 package com.example.recipebook.recipe;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-public interface RecipeRepository extends CrudRepository<Recipe, Long> {}
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RecipeRepository extends JpaRepository<Recipe, Long> {
+    List<Recipe> findByTitleContaining(String title);
+}

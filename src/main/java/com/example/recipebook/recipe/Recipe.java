@@ -6,9 +6,17 @@ import jakarta.persistence.*;
 @Table(name = "recipes")
 public class Recipe {
     private @Id @GeneratedValue Long id;
+
+	@Column(name = "title")
 	private String title;
+
+	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;
+
+	@Column(name = "ingredients", columnDefinition = "TEXT")
 	private String ingredients;
+
+	@Column(name = "instruction", columnDefinition = "TEXT")
 	private String instruction;
 	// private String cookTime;
 	// private int numStep;
@@ -59,7 +67,7 @@ public class Recipe {
 	}
 
 	public void setInstruction(String instruction) {
-		this.instruction = description;
+		this.instruction = instruction;
 	}
 
 }

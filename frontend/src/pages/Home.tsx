@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
@@ -5,6 +7,17 @@ import { Search2Icon } from '@chakra-ui/icons'
 import RecipeCard from '../components/RecipeCard'
 
 function Home() {
+  const [recipes, setRecipes] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:8080/api/recipes')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data): void => {
+        setRecipes(data)
+      })
+  }, [])
 
   return (
     <>
@@ -18,6 +31,7 @@ function Home() {
           <Input variant='filled' size='md' placeholder='I want to eat...' />
         </InputGroup>
       </Flex>
+      
       <Tabs variant='enclosed' colorScheme='red'>
         <TabList overflowX='scroll'>
           <Tab _selected={{ bg: 'red.50' }}>One</Tab>
@@ -31,10 +45,11 @@ function Home() {
 
         <TabPanels>
           <TabPanel bgColor={'red.50'}>
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
+          {recipes 
+            ? recipes.map((recipe, i) => (
+              <RecipeCard key={i} title={recipe.title} description={recipe.description}/>
+            ))
+            : null}
           </TabPanel>
 
           <TabPanel>
