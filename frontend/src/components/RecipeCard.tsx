@@ -16,8 +16,8 @@ function RecipeCard() {
             borderRadius="lg"
             width='100%'
             height='100%'
-            maxH={{ base: '150px', sm: '300px' }}
-            maxW={{ base: '150px', sm: '300px' }}
+            maxH={{ base: '100px', sm: '300px' }}
+            maxW={{ base: '100px', sm: '300px' }}
             src={cakeImg}
             alt='chocolate cake with berries'
         />
