@@ -21,7 +21,7 @@ function Home() {
 
   return (
     <>
-      <Flex justify={'space-around'} align={'stretch'} padding={'1rem 0.7rem 0.7rem 0.7rem'} w={'100%'} maxWidth={'1024px'}>
+      <Flex justify={'space-around'} align={'stretch'} padding={'1rem 0.7rem 0.7rem 0.7rem'} w={'100%'} boxShadow='md'>
         <Heading as='h1' size='lg' color='red.400' paddingRight={'1rem'}>RecipeBook</Heading>
         <Spacer />
         <InputGroup>
@@ -47,7 +47,7 @@ function Home() {
           <TabPanel bgColor={'red.50'}>
           {recipes 
             ? recipes.map((recipe, i) => (
-              <RecipeCard key={i} title={recipe.title} description={recipe.description}/>
+              <RecipeCard key={i} title={recipe.title} description={recipe.description} />
             ))
             : null}
           </TabPanel>

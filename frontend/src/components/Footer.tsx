@@ -7,7 +7,17 @@ function Footer() {
     // <ChakraLink as={ReactRouterLink} to='/'>
     //     Home
     // </ChakraLink>
-    <Flex direction='row' bg='red.100' justify='space-between' h='4rem' align='center' padding='0 2rem' pos='sticky' bottom='0'>
+    <Flex 
+      direction='row' 
+      bg='red.200' 
+      justify='space-between' 
+      h='4rem' 
+      align='center' 
+      padding='0 2rem' 
+      pos='sticky' 
+      bottom='0' 
+      boxShadow='dark-lg'
+    >
       <Link><Search2Icon /></Link>
       <Link><CalendarIcon /></Link>
       <Link>Cart</Link>
