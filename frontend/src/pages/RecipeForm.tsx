@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 import { Button, Flex, Input, Textarea } from "@chakra-ui/react"
 import { useForm } from "react-hook-form"
 
@@ -11,11 +13,22 @@ type FormData = {
 
 
 export default function RecipeForm() {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
   } = useForm<FormData>()
-  const onSubmit = handleSubmit((data) => console.log(data))
+
+  const onSubmit = handleSubmit((data) => {
+    fetch('http://localhost:8080/api/recipes', {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(() => {
+      navigate('/')
+    })
+  })
 
   return (
     <form onSubmit={onSubmit}>
