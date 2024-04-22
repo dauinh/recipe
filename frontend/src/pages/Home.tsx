@@ -47,7 +47,7 @@ function Home() {
           <TabPanel bgColor={'red.50'}>
           {recipes 
             ? recipes.map((recipe, i) => (
-              <RecipeCard key={i} title={recipe.title} description={recipe.description} />
+              <RecipeCard key={i} id={recipe.id} title={recipe.title} description={recipe.description} />
             ))
             : null}
           </TabPanel>

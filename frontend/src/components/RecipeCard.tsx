@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import { Heading, Text, Image, Card, Button, Flex } from '@chakra-ui/react'
 import cakeImg from '../assets/cake.jpeg'
 
 function RecipeCard({...props}) {
-  const { title, description } = props
+  const navigate = useNavigate()
+  const { id, title, description } = props
 
   return (
     <Card
@@ -24,8 +26,13 @@ function RecipeCard({...props}) {
             <Heading as='h2' size={['md', 'lg']}>{title}</Heading>
 
             <Text fontSize={['xs', 'md']} align='left' noOfLines={[3, 5, 10]}>{description}</Text>
-            <Button variant='solid' colorScheme='gray' size='sm' marginTop='1rem'>
-                See more
+            <Button 
+                variant='solid' 
+                colorScheme='gray' 
+                size='sm' 
+                marginTop='1rem' 
+                onClick={() => {navigate(`recipes/${id}`)}}
+            >See more
             </Button>
         </Flex>
         </Card>
