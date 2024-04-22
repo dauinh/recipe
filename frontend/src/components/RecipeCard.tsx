@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Heading, Text, Image, Card, Button, Flex } from '@chakra-ui/react'
 import cakeImg from '../assets/cake.jpeg'
 
-function RecipeCard({...props}) {
+export default function RecipeCard({...props}) {
   const navigate = useNavigate()
   const { id, title, description } = props
 
@@ -38,5 +38,3 @@ function RecipeCard({...props}) {
         </Card>
   )
 }
-
-export default RecipeCard

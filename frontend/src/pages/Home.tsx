@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 
-import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement, Button } from '@chakra-ui/react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import { Search2Icon } from '@chakra-ui/icons'
+import { AddIcon, Search2Icon } from '@chakra-ui/icons'
 
 import RecipeCard from '../components/RecipeCard'
 
-function Home() {
+export default function Home() {
+  const navigate = useNavigate()
   const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
@@ -61,8 +63,10 @@ function Home() {
           </TabPanel>
         </TabPanels>
       </Tabs>
+
+      <Button
+        onClick={() => {navigate(`recipes/add`)}}
+      ><AddIcon /></Button>
     </>
   )
 }
-
-export default Home
