@@ -17,7 +17,7 @@ export default function App() {
           <Route path="add" element={<RecipeForm/> } />
         </Route>
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

@@ -65,8 +65,13 @@ export default function Home() {
       </Tabs>
 
       <Button
+        background='green'
+        pos='fixed'
+        right='5vw'
+        bottom='10vh'
+        zIndex='1'
         onClick={() => {navigate(`recipes/add`)}}
-      ><AddIcon /></Button>
+      ><AddIcon color='white'/></Button>
     </>
   )
 }
