@@ -4,8 +4,9 @@ import './App.css'
 import Home from './pages/Home.tsx'
 import Footer from './components/Footer.tsx'
 import Recipe from './pages/Recipe.tsx'
+import RecipeForm from './pages/RecipeForm.tsx'
 
-function App() {
+export default function App() {
 
   return (
     <>
@@ -13,11 +14,10 @@ function App() {
         <Route path="/" element={<Home/> } />
         <Route path="recipes">
           <Route path=":id" element={<Recipe/> } />
+          <Route path="add" element={<RecipeForm/> } />
         </Route>
       </Routes>
       <Footer />
     </>
   )
 }
-
-export default App

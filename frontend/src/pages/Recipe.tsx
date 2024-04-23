@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 
-function Recipe() {
+export default function Recipe() {
   let { id } = useParams()
   const [ data, setData ] = useState()
 
@@ -93,5 +93,3 @@ function Recipe() {
     </>
   )
 }
-
-export default Recipe

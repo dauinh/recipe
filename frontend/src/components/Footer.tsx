@@ -2,7 +2,7 @@
 import { Box, Link as ChakraLink, Flex, Link, LinkProps } from '@chakra-ui/react'
 import { CalendarIcon, Search2Icon } from '@chakra-ui/icons'
 
-function Footer() {
+export default function Footer() {
   return (
     // <ChakraLink as={ReactRouterLink} to='/'>
     //     Home
@@ -25,5 +25,3 @@ function Footer() {
     </Flex>
   )
 }
-
-export default Footer

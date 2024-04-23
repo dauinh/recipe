@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 
-import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement, Button } from '@chakra-ui/react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import { Search2Icon } from '@chakra-ui/icons'
+import { AddIcon, Search2Icon } from '@chakra-ui/icons'
 
 import RecipeCard from '../components/RecipeCard'
 
-function Home() {
+export default function Home() {
+  const navigate = useNavigate()
   const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
@@ -47,7 +49,7 @@ function Home() {
           <TabPanel bgColor={'red.50'}>
           {recipes 
             ? recipes.map((recipe, i) => (
-              <RecipeCard key={i} title={recipe.title} description={recipe.description} />
+              <RecipeCard key={i} id={recipe.id} title={recipe.title} description={recipe.description} />
             ))
             : null}
           </TabPanel>
@@ -61,8 +63,15 @@ function Home() {
           </TabPanel>
         </TabPanels>
       </Tabs>
+
+      <Button
+        background='green'
+        pos='fixed'
+        right='5vw'
+        bottom='10vh'
+        zIndex='1'
+        onClick={() => {navigate(`recipes/add`)}}
+      ><AddIcon color='white'/></Button>
     </>
   )
 }
-
-export default Home
