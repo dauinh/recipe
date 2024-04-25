@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
 import { Flex, Spacer, Heading, Input, InputGroup, InputLeftElement, Button } from '@chakra-ui/react'
@@ -10,6 +10,29 @@ import RecipeCard from '../components/RecipeCard'
 export default function Home() {
   const navigate = useNavigate()
   const [recipes, setRecipes] = useState([])
+  const [y, setY] = useState(window.scrollY)
+  const [isScrollDown, setIsScrollDown] = useState(false)
+
+  const handleNavigation = useCallback(
+    e => {
+      const window = e.currentTarget;
+      if (y > window.scrollY) {
+        setIsScrollDown(false)
+      } else if (y < window.scrollY) {
+        setIsScrollDown(true)
+      }
+      setY(window.scrollY);
+    }, [y]
+  );
+
+  useEffect(() => {
+    setY(window.scrollY);
+    window.addEventListener("scroll", handleNavigation);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavigation);
+    };
+  }, [handleNavigation]);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/recipes')
@@ -64,14 +87,16 @@ export default function Home() {
         </TabPanels>
       </Tabs>
 
-      <Button
-        background='green'
-        pos='fixed'
-        right='5vw'
-        bottom='10vh'
-        zIndex='1'
-        onClick={() => {navigate(`recipes/add`)}}
-      ><AddIcon color='white'/></Button>
+      {isScrollDown
+      ? <Button
+          background='green'
+          pos='fixed'
+          right='5vw'
+          bottom='10vh'
+          zIndex='1'
+          onClick={() => {navigate(`recipes/add`)}}
+        ><AddIcon color='white'/></Button>
+      : null}
     </>
   )
 }

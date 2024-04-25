@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { Heading, Text, Image, Card, Button, Flex } from '@chakra-ui/react'
+import { Heading, Text, Image, Card, Button, Flex, Box } from '@chakra-ui/react'
 import cakeImg from '../assets/cake.jpeg'
 
 export default function RecipeCard({...props}) {
@@ -13,28 +13,32 @@ export default function RecipeCard({...props}) {
         variant='elevated'
         size='md'
         m='1rem 0'
+        borderRadius='10px'
         >
         <Image
-            borderRadius="lg"
+            borderRadius='10px 0 0 10px'
             width={{ base: '150px', sm: '300px' }}
             height={{ base: '150px', sm: '300px' }}
             src={cakeImg}
             alt='chocolate cake with berries'
         />
 
-        <Flex align='flex-start' direction='column' padding='1rem 1rem 0'>
-            <Heading as='h2' size={['md', 'lg']}>{title}</Heading>
+        {/* <Flex align='flex-start' direction='column' width='100%' padding='1rem 1rem 0'> */}
+        <Box width='100%' padding='1rem 1rem 0'>
+            <Heading textAlign='left' as='h2' size={['md', 'lg']}>{title}</Heading>
 
             <Text fontSize={['xs', 'md']} align='left' noOfLines={[3, 5, 10]}>{description}</Text>
             <Button 
                 variant='solid' 
                 colorScheme='gray' 
                 size='sm' 
-                marginTop='1rem' 
+                marginTop='1rem'
+                marginLeft='auto'
                 onClick={() => {navigate(`recipes/${id}`)}}
             >See more
             </Button>
-        </Flex>
+        {/* </Flex> */}
+        </Box>
         </Card>
   )
 }
