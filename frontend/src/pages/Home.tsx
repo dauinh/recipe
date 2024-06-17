@@ -13,6 +13,10 @@ export default function Home() {
   const [y, setY] = useState(window.scrollY)
   const [isScrollDown, setIsScrollDown] = useState(false)
 
+  // add and remove class during scroll
+  // style class: add/minus height -> transition out of screen; transition style (animation)
+  // not more than 250ms
+
   const handleNavigation = useCallback(
     e => {
       const window = e.currentTarget;

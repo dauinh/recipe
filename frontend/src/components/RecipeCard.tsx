@@ -31,9 +31,11 @@ export default function RecipeCard({...props}) {
             <Button 
                 variant='solid' 
                 colorScheme='gray' 
-                size='sm' 
-                marginTop='1rem'
+                size='sm'
                 marginLeft='auto'
+                display='block'
+                position='relative'
+                bottom='3px'
                 onClick={() => {navigate(`recipes/${id}`)}}
             >See more
             </Button>
